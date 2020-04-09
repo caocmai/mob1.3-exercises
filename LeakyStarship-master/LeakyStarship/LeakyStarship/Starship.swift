@@ -23,9 +23,9 @@ class Starship
         print("Starship \(name) instance allocated.\n")
     }
     
-    lazy var roster: () -> String = { [weak self] in
+    lazy var roster: () -> String = { [unowned self] in
         var list = ""
-        for crewMember in self!.crewMembers
+        for crewMember in self.crewMembers
         {
             list += crewMember + " "
         }
